@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  flight_number: 1
+  departure_airport: MyString
+  departure_time: 2012-05-21 16:22:15
+  arrival_airport: MyString
+  distance: 1
+
+two:
+  flight_number: 1
+  departure_airport: MyString
+  departure_time: 2012-05-21 16:22:15
+  arrival_airport: MyString
+  distance: 1

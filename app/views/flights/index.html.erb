@@ -1,0 +1,34 @@
+<h2>Daily Flight Schedule</h2>
+
+<div id="search">
+	<label for="keyword">Search:</label><input type="text" name="keyword" placeholder="Enter an Airport Code" size="30">
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>
+      <th>Flight Number</th>
+      <th>Leaves</th>
+      <th>Departure Time</th>
+      <th>Arrives</th>
+      <th>Arrival Time</th>
+      <th>Seats Remaining</th>
+      <th>Miles</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @flights.each do |flight| %>
+	    <tr>
+	      <td><button>Book Now</button></td>
+	      <td><%=flight.flight_number%></td>
+	      <td><%=flight.departure_airport%></td>
+	      <td><%=flight.departure_time.localtime.strftime("%l:%M %P")%></td>
+	      <td><%=flight.arrival_airport%></td>
+	      <td><%#=flight.arrival_time%></td>
+	      <td><%=flight.seats%></td>
+	      <td><%=flight.distance%></td>
+	    </tr>
+    <%end%>
+  </tbody>
+</table>
