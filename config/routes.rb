@@ -1,4 +1,5 @@
 AcademyAir::Application.routes.draw do
+  
  # get "/flights" => "flights#index"
 
  root to: 'flights#index'
@@ -6,6 +7,9 @@ AcademyAir::Application.routes.draw do
  get '/logout' => 'sessions#destroy', as: :logout
  resources :sessions
  resources :users
+ get 'reservations/new/:id' => 'reservations#new'
+ resources :reservations
+
 
  
  get '/mockup' => 'pages#home', :as => :mockup

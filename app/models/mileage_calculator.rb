@@ -12,7 +12,12 @@ class MileageCalculator
 
 	def miles
 		route = "#{@departure_airport}-#{@arrival_airport}"
-		return CHART[route]
+		miles=  CHART[route]
+		if miles.nil?
+			route = "#{@arrival_airport}-#{@departure_airport}"
+			miles= CHART[route]
+		end
+		return miles
 	end
 
 end

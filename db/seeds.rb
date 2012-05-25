@@ -11,7 +11,7 @@ if Rails.env.development?
 		departure_time = rand(8..20)
 		flight_number = rand(100..999)
 
-		Flight.create :flight_number => flight_number,
+	f =	Flight.create :flight_number => flight_number,
 					  :departure_airport => departure_airport,
 					  :arrival_airport => arrival_airport,
 					  :departure_time => (Date.today + departure_time.hours),

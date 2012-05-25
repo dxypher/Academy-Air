@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-		session[:login_id] = nil
+		reset_session
 		flash[:notice] = "Bye"
 		redirect_to root_url		
 	end
