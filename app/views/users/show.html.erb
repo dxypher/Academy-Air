@@ -1,3 +1,12 @@
 <h2>Profile Page</h2>
 <h3>Name: <%=@user.name%></h3>
-<h3>Your Current Frequent Flier Miles: <%=@user.miles.to_i %></h3>
+
+<h3>Your Current Frequent Flier Miles: <%=@user.miles.to_i%></h3>
+<% @user.reservations.each do |reservation|%>
+<h3>You're Booked on Flight # <%=reservation.flight.flight_number%></h3>
+<h3>Departure Time <%=reservation.flight.departure_time.localtime.strftime("%l:%M %P")%></h3>
+<h3>Departure Airport: <%=reservation.flight.departure_airport%></h3>
+<h3>Arrival Airport: <%=reservation.flight.arrival_airport%></h3>
+<h3>Arrival Time: </h3>
+<%= link_to "Cancel Reservation", reservation_url(reservation), method: :delete %>
+<%end%>

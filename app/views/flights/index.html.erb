@@ -1,7 +1,10 @@
 <h2>Daily Flight Schedule</h2>
 
 <div id="search">
-	<label for="keyword">Search:</label><input type="text" name="keyword" placeholder="Enter an Airport Code" size="30">
+  <form action="<%= flights_url %>" method="get">
+    <label for="keyword">Search:</label>
+    <input type="text" name="keyword" placeholder="Enter a Departure Code" size="30">
+  </form>
 </div>
 
 <table>
@@ -20,8 +23,8 @@
   <tbody>
   	<% @flights.each do |flight| %>
 	    <tr>
-	      <td><a href ="/reservations/new/<%=flight.id%>"><button>Book Flight</button></a></td>
-	      <td><%=flight.flight_number%></td>
+        <td><%= link_to "Book Now", new_reservation_url(flight_id: flight.id) %></td>
+        <td><%=flight.flight_number%></td>
 	      <td><%=flight.departure_airport%></td>
 	      <td><%=flight.departure_time.localtime.strftime("%l:%M %P")%></td>
 	      <td><%=flight.arrival_airport%></td>
@@ -32,3 +35,4 @@
     <%end%>
   </tbody>
 </table>
+<%= paginate @flights %>

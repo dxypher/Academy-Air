@@ -1,10 +1,18 @@
 class MileageCalculator
 
-	CHART = {'ORD-SFO' => 1846,
-			 'ORD-BOS' => 866,
-			 'JFK-BOS' => 186,
-			 'LAX-JFK' => 2475}
-
+	CHART = { "ORD-SFO" => 1846, 
+            'ORD-SEA' => 1721, 
+            'ORD-BOS' => 866, 
+            'ORD-JFK' => 740, 
+            'ORD-LAX' => 1744, 
+            'JFK-BOS' => 186, 
+            'JFK-LAX' => 2475, 
+            'JFK-SEA' => 2421, 
+            'LAX-SEA' => 954,
+            'JFK-SFO'=> 2586,
+            'LAX-SFO'=> 338 
+          }
+  
 	def initialize(departure_airport, arrival_airport)
 		@departure_airport = departure_airport
 		@arrival_airport = arrival_airport

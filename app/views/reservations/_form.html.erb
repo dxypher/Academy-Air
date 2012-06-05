@@ -12,11 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.hidden_field :user_id, :value => @user.id %>
-  </div>
-  <div class="field">
-    <p>Flight Number: <%= @flight.flight_number %></p>
-    <%= f.hidden_field :flight_id, :value => @flight.id %>
+    <p>Flight Number: <%= @reservation.flight.flight_number %></p>
+    <%= f.hidden_field :flight_id %>
   </div>
   <div class="field">
     <%= f.label :departure_date %><br />

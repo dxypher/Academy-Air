@@ -1,6 +1,15 @@
 class ReservationsController < ApplicationController
   # GET /reservations
   # GET /reservations.json
+  # before_filter :require_login
+  # before_filter :require_user, :only => [:show, :destroy]
+
+  # def require_user
+  #   @reservation = Reservation.find(params[:id])
+  #   if @reservation.user.id != session[:login_id]
+  #     redirect_to root_url, notice: "Please Login"
+  #   end
+  # end
   def index
     @reservations = Reservation.all
 
@@ -24,8 +33,9 @@ class ReservationsController < ApplicationController
   # GET /reservations/new
   # GET /reservations/new.json
   def new
+    
     @reservation = Reservation.new
-    @flight = Flight.find_by_id(params[:id])
+    @reservation.flight = Flight.find(params[:flight_id])
 
 
     respond_to do |format|
@@ -43,6 +53,8 @@ class ReservationsController < ApplicationController
   # POST /reservations.json
   def create
     @reservation = Reservation.new(params[:reservation])
+    @reservation.user = User.find(session[:login_id])
+    
 
     respond_to do |format|
       if @reservation.save

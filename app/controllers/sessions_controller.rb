@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 		user = User.find_by_name(params[:name])
 		if user && user.authenticate(params[:password])
 			session[:login_id] = user.id
-			redirect_to root_url, notice: "Hello, #{user.name}"
+			redirect_to user_url(user), notice: "Hello, #{user.name}"
 		else
 			redirect_to root_url, notice: "Login Failed, Please try again"
 		end

@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :password, :password_confirmation
+  attr_accessible :name, :password, :password_confirmation, :miles
 
-  has_one :reservation
+  has_many :reservations
 
   has_secure_password
 
@@ -11,5 +11,12 @@ class User < ActiveRecord::Base
   validates :password, presence: true
   validates :password_confirmation, presence: true
 
+  before_create :set_miles_to_zero
+
+  def set_miles_to_zero
+  	self.miles = 0
+  end
+
+ 
 
 end
